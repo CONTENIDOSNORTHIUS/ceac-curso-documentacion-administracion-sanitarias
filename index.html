@@ -55,23 +55,23 @@
 </head>
 <body class="font-body text-[#1a1a1a] bg-white antialiased">
 
-  <!-- ==================== NAV ==================== -->
-  <header id="nav" class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
-    <nav class="max-w-7xl mx-auto px-4 lg:px-8 h-16 flex items-center justify-between gap-4">
+  <!-- ==================== NAV (transparente sobre hero, blanco al hacer scroll) ==================== -->
+  <header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-transparent">
+    <nav class="max-w-7xl mx-auto px-4 lg:px-10 h-20 flex items-center justify-between gap-4">
       <a href="#hero" class="flex items-center" aria-label="CEAC inicio">
-        <img src="assets/logos/ceac-azul.svg" alt="Logo CEAC" class="h-7 w-auto" />
+        <img src="assets/logos/ceac-blanco.svg" data-logo-light="assets/logos/ceac-blanco.svg" data-logo-dark="assets/logos/ceac-azul.svg" alt="Logo CEAC" class="h-7 w-auto" id="navLogo" />
       </a>
-      <ul class="hidden lg:flex items-center gap-7 text-[13px] text-[#1a1a1a]">
-        <li><a href="#quienes-somos" class="hover:text-ceac-blue transition-colors">Quiénes somos</a></li>
-        <li><a href="#por-que" class="hover:text-ceac-blue transition-colors">Por qué hacerlo</a></li>
-        <li><a href="#objetivos" class="hover:text-ceac-blue transition-colors">Objetivos</a></li>
-        <li><a href="#temario" class="hover:text-ceac-blue transition-colors">Temario</a></li>
-        <li><a href="#metodologia" class="hover:text-ceac-blue transition-colors">Metodología</a></li>
-        <li><a href="#equipo" class="hover:text-ceac-blue transition-colors">Equipo docente</a></li>
-        <li><a href="#sobre-ceac" class="hover:text-ceac-blue transition-colors">Sobre CEAC</a></li>
+      <ul id="navLinks" class="hidden lg:flex items-center gap-9 text-[14px] text-white font-medium">
+        <li><a href="#quienes-somos" class="hover:opacity-80 transition-opacity">Quienes somos</a></li>
+        <li><a href="#por-que" class="hover:opacity-80 transition-opacity">Por qué hacerlo</a></li>
+        <li><a href="#objetivos" class="hover:opacity-80 transition-opacity">Objetivos</a></li>
+        <li><a href="#temario" class="hover:opacity-80 transition-opacity">Temario</a></li>
+        <li><a href="#metodologia" class="hover:opacity-80 transition-opacity">Metodología</a></li>
+        <li><a href="#equipo" class="hover:opacity-80 transition-opacity">Equipo docente</a></li>
+        <li><a href="#sobre-ceac" class="hover:opacity-80 transition-opacity">Sobre CEAC</a></li>
       </ul>
-      <button id="menuBtn" class="lg:hidden p-2 rounded hover:bg-gray-100" aria-label="Abrir menú" aria-expanded="false">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <button id="menuBtn" class="lg:hidden p-2 rounded text-white" aria-label="Abrir menú" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </nav>
     <div id="mobileMenu" class="lg:hidden hidden border-t border-gray-100 bg-white">
@@ -87,40 +87,43 @@
     </div>
   </header>
 
-  <main class="pt-16">
+  <main>
 
-    <!-- ==================== 1. HERO (banner compacto, sin formulario) ==================== -->
+    <!-- ==================== 1. HERO (foto a sangre + título serif itálica + pills azules) ==================== -->
     <section id="hero" class="relative">
-      <div class="relative h-[320px] md:h-[400px] lg:h-[440px] overflow-hidden bg-ceac-blue">
-        <!-- TODO: Sustituir por foto real de recepción de hotel -->
-        <img src="https://placehold.co/1920x880/0017EC/0017EC?text=+"
-             alt=""
-             aria-hidden="true"
-             class="w-full h-full object-cover opacity-60" />
-        <!-- Imagen temática superpuesta (puedes sustituir por foto real) -->
-        <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1920&q=70"
-             onerror="this.style.display='none'"
-             alt="Recepción de hotel"
-             class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-70" />
-        <div class="absolute inset-0 bg-gradient-to-r from-ceac-blue via-ceac-blue/85 to-ceac-blue/40"></div>
+      <div class="relative h-[600px] md:h-[720px] lg:h-[820px] overflow-hidden bg-[#1a1209]">
+        <!-- TODO: Sustituye por tu foto real. Arrástrala a /assets/img/hero-recepcion.jpg -->
+        <img src="assets/img/hero-recepcion.jpg"
+             onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2400&q=80';"
+             alt="Recepcionista de hotel atendiendo a clientes en el mostrador"
+             class="absolute inset-0 w-full h-full object-cover" />
 
-        <div class="absolute inset-0 flex items-center">
-          <div class="max-w-7xl mx-auto w-full px-4 lg:px-8">
-            <h1 class="font-display text-white text-3xl md:text-5xl lg:text-6xl leading-[1.05] max-w-3xl">
+        <!-- Degradado para legibilidad del texto en la parte inferior izquierda -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/40"></div>
+        <div class="absolute inset-y-0 left-0 w-full md:w-2/3 bg-gradient-to-r from-black/65 to-transparent"></div>
+
+        <!-- Contenido del hero, alineado a la izquierda en el cuadrante inferior -->
+        <div class="absolute inset-0 flex items-end pb-12 md:pb-20 lg:pb-24">
+          <div class="max-w-7xl mx-auto w-full px-4 md:px-10 lg:px-16">
+            <h1 class="font-display text-white text-4xl md:text-6xl lg:text-7xl leading-[1.02] max-w-2xl">
               Curso de<br/>
-              <span class="italic">Recepcionista de Hotel</span><span class="not-italic">!</span>
+              <span class="italic">Recepcionista de<br/>Hotel</span><span class="not-italic">!</span>
             </h1>
 
-            <div class="mt-6 flex flex-wrap items-center gap-3">
-              <span class="bg-ceac-lime text-ceac-blue text-[12px] font-semibold px-4 py-1.5 rounded-full">
-                FP Oficial
+            <!-- Pills azul CEAC -->
+            <div class="mt-6 md:mt-8 flex flex-wrap items-center gap-3">
+              <span class="bg-ceac-blue text-white text-[13px] font-medium px-5 py-2 rounded-full">
+                Fórmate a tu ritmo
               </span>
-              <span class="bg-white text-ceac-blue text-[12px] font-semibold px-4 py-1.5 rounded-full">
+              <span class="bg-ceac-blue text-white text-[13px] font-medium px-5 py-2 rounded-full">
                 Prácticas garantizadas*
               </span>
-              <span class="text-white/90 text-[12px] font-medium ml-1">
-                Te formas, <em class="font-display not-italic"><span class="italic">trabajas</span></em>
-              </span>
+            </div>
+
+            <!-- Programa avalado por: Instituto Nebrija -->
+            <div class="mt-6 md:mt-8 flex items-center gap-4">
+              <p class="text-white text-[13px] font-medium">Programa avalado por:</p>
+              <img src="assets/logos/instituto-nebrija-blanco.svg" alt="Instituto Nebrija — Competencias Profesionales" class="h-9 md:h-10 w-auto" />
             </div>
           </div>
         </div>

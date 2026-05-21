@@ -60,16 +60,47 @@
     revealEls.forEach(el => el.classList.add('is-visible'));
   }
 
-  /* ---------- 4. Sombra del nav al hacer scroll ---------- */
+  /* ---------- 4. Nav: transparente sobre hero → blanco al hacer scroll ---------- */
   const nav = document.getElementById('nav');
+  const navLogo = document.getElementById('navLogo');
+  const navLinks = document.getElementById('navLinks');
+  const menuBtnEl = document.getElementById('menuBtn');
+
   if (nav) {
-    const onScroll = () => {
-      if (window.scrollY > 8) {
-        nav.classList.add('shadow-lg');
+    const hero = document.getElementById('hero');
+    const threshold = () => (hero ? hero.offsetHeight - 80 : 200);
+
+    const setSolid = (solid) => {
+      if (solid) {
+        nav.classList.remove('bg-transparent');
+        nav.classList.add('bg-white/95', 'backdrop-blur', 'border-b', 'border-gray-100', 'shadow-sm');
+        if (navLogo && navLogo.dataset.logoDark) navLogo.src = navLogo.dataset.logoDark;
+        if (navLinks) {
+          navLinks.classList.remove('text-white');
+          navLinks.classList.add('text-[#1a1a1a]');
+        }
+        if (menuBtnEl) {
+          menuBtnEl.classList.remove('text-white');
+          menuBtnEl.classList.add('text-[#1a1a1a]');
+        }
       } else {
-        nav.classList.remove('shadow-lg');
+        nav.classList.add('bg-transparent');
+        nav.classList.remove('bg-white/95', 'backdrop-blur', 'border-b', 'border-gray-100', 'shadow-sm');
+        if (navLogo && navLogo.dataset.logoLight) navLogo.src = navLogo.dataset.logoLight;
+        if (navLinks) {
+          navLinks.classList.add('text-white');
+          navLinks.classList.remove('text-[#1a1a1a]');
+        }
+        if (menuBtnEl) {
+          menuBtnEl.classList.add('text-white');
+          menuBtnEl.classList.remove('text-[#1a1a1a]');
+        }
       }
     };
+
+    const onScroll = () => setSolid(window.scrollY > threshold());
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    onScroll();
   }
 })();
