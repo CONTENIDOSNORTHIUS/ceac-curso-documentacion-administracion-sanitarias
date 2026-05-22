@@ -472,24 +472,23 @@
           </p>
         </div>
 
-        <!-- Bloque verde único con las 3 estadísticas -->
+        <!-- Bloque verde único con las 3 estadísticas (alineadas por filas) -->
         <div class="mt-10 bg-ceac-lime rounded-3xl px-6 py-10 md:py-14 lg:px-12 reveal">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 text-center">
-            <div>
-              <p class="text-xs md:text-sm text-ceac-blue/85 mb-2">Cada año llegan a nuestro país más de</p>
-              <p class="font-display italic text-5xl md:text-6xl lg:text-7xl text-ceac-blue leading-none">85M</p>
-              <p class="text-xs md:text-sm text-ceac-blue/85 mt-3">de turistas</p>
-            </div>
-            <div>
-              <p class="text-xs md:text-sm text-ceac-blue/85 mb-2">Un salario medio en España de</p>
-              <p class="font-display italic text-5xl md:text-6xl lg:text-7xl text-ceac-blue leading-none">18.000 €</p>
-              <p class="text-xs md:text-sm text-ceac-blue/85 mt-3">anuales</p>
-            </div>
-            <div>
-              <p class="text-xs md:text-sm text-ceac-blue/85 mb-2">En territorio nacional hay más de</p>
-              <p class="font-display italic text-5xl md:text-6xl lg:text-7xl text-ceac-blue leading-none">15.000</p>
-              <p class="text-xs md:text-sm text-ceac-blue/85 mt-3">hoteles</p>
-            </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 text-center items-end">
+            <!-- Etiquetas superiores (fila 1) -->
+            <p class="text-xs md:text-sm text-black md:row-start-1">Cada año llegan a nuestro país más de</p>
+            <p class="text-xs md:text-sm text-black md:row-start-1">Un salario medio en España de</p>
+            <p class="text-xs md:text-sm text-black md:row-start-1">En territorio nacional hay más de</p>
+
+            <!-- Cifras grandes (fila 2) -->
+            <p class="font-display italic text-5xl md:text-6xl lg:text-7xl text-ceac-blue leading-none md:row-start-2">85M</p>
+            <p class="font-display italic text-5xl md:text-6xl lg:text-7xl text-ceac-blue leading-none md:row-start-2">18.000 €</p>
+            <p class="font-display italic text-5xl md:text-6xl lg:text-7xl text-ceac-blue leading-none md:row-start-2">15.000</p>
+
+            <!-- Etiquetas inferiores (fila 3) -->
+            <p class="text-xs md:text-sm text-black md:row-start-3">de turistas</p>
+            <p class="text-xs md:text-sm text-black md:row-start-3">anuales</p>
+            <p class="text-xs md:text-sm text-black md:row-start-3">hoteles</p>
           </div>
         </div>
       </div>
