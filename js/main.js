@@ -80,19 +80,63 @@
     }, { passive: true });
   });
 
-  /* ---------- 5. Carrusel de opiniones (Trustpilot) ---------- */
+  /* ---------- 5. Carrusel de opiniones (autoplay 5s + flechas) ---------- */
   const reviewsTrack = document.getElementById('reviewsTrack');
   const reviewsPrev = document.getElementById('reviewsPrev');
   const reviewsNext = document.getElementById('reviewsNext');
-  if (reviewsTrack && reviewsPrev && reviewsNext) {
+
+  if (reviewsTrack) {
     const stepPx = () => {
       const card = reviewsTrack.querySelector('article');
-      if (!card) return 320;
+      if (!card) return 316;
       const gap = parseFloat(getComputedStyle(reviewsTrack).gap) || 16;
       return card.offsetWidth + gap;
     };
-    reviewsPrev.addEventListener('click', () => reviewsTrack.scrollBy({ left: -stepPx(), behavior: 'smooth' }));
-    reviewsNext.addEventListener('click', () => reviewsTrack.scrollBy({ left: stepPx(), behavior: 'smooth' }));
+
+    const goNext = () => {
+      // Si estamos cerca del final, vuelve al inicio
+      const maxScroll = reviewsTrack.scrollWidth - reviewsTrack.clientWidth;
+      if (reviewsTrack.scrollLeft >= maxScroll - 4) {
+        reviewsTrack.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        reviewsTrack.scrollBy({ left: stepPx(), behavior: 'smooth' });
+      }
+    };
+
+    const goPrev = () => {
+      if (reviewsTrack.scrollLeft <= 4) {
+        // si estamos al inicio, salta al final
+        reviewsTrack.scrollTo({ left: reviewsTrack.scrollWidth, behavior: 'smooth' });
+      } else {
+        reviewsTrack.scrollBy({ left: -stepPx(), behavior: 'smooth' });
+      }
+    };
+
+    if (reviewsPrev) reviewsPrev.addEventListener('click', () => { goPrev(); restart(); });
+    if (reviewsNext) reviewsNext.addEventListener('click', () => { goNext(); restart(); });
+
+    // Autoplay cada 5 s, con pausa al hover/foco/touch
+    let timer = null;
+    const start = () => { if (!timer) timer = setInterval(goNext, 5000); };
+    const stop  = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const restart = () => { stop(); start(); };
+
+    reviewsTrack.addEventListener('mouseenter', stop);
+    reviewsTrack.addEventListener('mouseleave', start);
+    reviewsTrack.addEventListener('focusin',  stop);
+    reviewsTrack.addEventListener('focusout', start);
+    reviewsTrack.addEventListener('touchstart', stop, { passive: true });
+    reviewsTrack.addEventListener('touchend',   start, { passive: true });
+
+    // Inicia cuando entra en viewport para no consumir CPU innecesariamente
+    if ('IntersectionObserver' in window) {
+      const carouselIO = new IntersectionObserver(entries => {
+        entries.forEach(e => (e.isIntersecting ? start() : stop()));
+      }, { threshold: 0.2 });
+      carouselIO.observe(reviewsTrack);
+    } else {
+      start();
+    }
   }
 
   /* ---------- 6. Nav: transparente sobre hero → blanco al hacer scroll ---------- */
