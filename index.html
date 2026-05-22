@@ -699,86 +699,112 @@
     <!-- ==================== TEMARIO ==================== -->
     <section id="temario" class="py-16 lg:py-20">
       <div class="max-w-6xl mx-auto px-4 lg:px-8">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 reveal">
-          <div>
-            <h2 class="font-display italic text-3xl md:text-4xl text-ceac-blue mb-2">Descubre nuestro temario</h2>
-            <p class="text-sm text-gray-600"><strong class="text-ceac-blue">510 horas lectivas</strong> · 9 módulos formativos</p>
-          </div>
-          <a href="#temario" class="inline-flex items-center gap-2 bg-ceac-lime hover:bg-ceac-limeDark text-ceac-blue font-semibold text-sm px-5 py-3 rounded-full transition-colors">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Descarga nuestro temario
+        <!-- Cabecera: título + botón -->
+        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4 reveal">
+          <h2 class="font-display italic text-3xl md:text-4xl lg:text-5xl text-ceac-blue leading-tight">Descubre nuestro temario</h2>
+          <a href="#" class="inline-flex items-center self-start gap-2 bg-ceac-lime hover:bg-ceac-limeDark text-ceac-blue font-semibold text-xs md:text-sm px-5 py-2.5 rounded-full transition-colors whitespace-nowrap">
+            Descarga nuestro temario gratis
           </a>
         </div>
 
+        <!-- Descripción -->
+        <p class="text-xs md:text-sm text-black leading-relaxed max-w-3xl mb-8 reveal">
+          Diferencias entre mercados turísticos, técnicas de marketing, nociones de primeros auxilios,
+          inglés… Esta formación, de <strong>510 horas lectivas</strong>, se ha creado contemplando todos los aspectos
+          profesionales de una recepción de hotel. Aprenderás a trabajar en la gestión del correcto
+          funcionamiento de un hospedaje, a aportar la información de la manera correcta y a tratar con
+          empatía a los clientes. Una vez finalices, estarás preparado para ser el mejor anfitrión que
+          pueden querer los viajeros.
+        </p>
+
+        <!-- Lista de módulos -->
         <div class="space-y-0" id="accordion">
           <div class="border-t border-gray-200">
             <button class="acc-btn w-full flex justify-between items-center py-4 text-left hover:bg-gray-50 transition-colors px-2 gap-4" aria-expanded="false">
-              <span class="text-ceac-blue text-sm md:text-base"><span class="text-gray-500 mr-3 font-mono text-xs">M1</span>Gestión de reservas de habitaciones y servicios propios de alojamientos</span>
-              <span class="acc-icon flex-shrink-0 w-8 h-8 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center font-bold text-xl transition-transform">+</span>
+              <span class="text-ceac-blue text-sm md:text-base"><strong>Módulo 1:</strong> Gestión de reservas de habitaciones y servicios propios de alojamientos</span>
+              <span class="acc-icon flex-shrink-0 w-9 h-9 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center transition-transform">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              </span>
             </button>
             <div class="acc-panel hidden pb-4 px-2 text-sm text-gray-700">Procesos y procedimientos para gestionar reservas individuales y de grupos, gestión de canales de venta directos e intermediarios y atención de incidencias.</div>
           </div>
 
           <div class="border-t border-gray-200">
             <button class="acc-btn w-full flex justify-between items-center py-4 text-left hover:bg-gray-50 transition-colors px-2 gap-4" aria-expanded="false">
-              <span class="text-ceac-blue text-sm md:text-base"><span class="text-gray-500 mr-3 font-mono text-xs">M2</span>Diseño y ejecución de acciones comerciales en alojamientos</span>
-              <span class="acc-icon flex-shrink-0 w-8 h-8 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center font-bold text-xl transition-transform">+</span>
+              <span class="text-ceac-blue text-sm md:text-base"><strong>Módulo 2:</strong> Diseño y ejecución de acciones comerciales en alojamientos</span>
+              <span class="acc-icon flex-shrink-0 w-9 h-9 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center transition-transform">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              </span>
             </button>
             <div class="acc-panel hidden pb-4 px-2 text-sm text-gray-700">Planificación de acciones de marketing y ventas adaptadas al sector alojativo, análisis competitivo y fidelización del cliente.</div>
           </div>
 
           <div class="border-t border-gray-200">
             <button class="acc-btn w-full flex justify-between items-center py-4 text-left hover:bg-gray-50 transition-colors px-2 gap-4" aria-expanded="false">
-              <span class="text-ceac-blue text-sm md:text-base"><span class="text-gray-500 mr-3 font-mono text-xs">M3</span>Comunicación y atención al cliente en hostelería y turismo</span>
-              <span class="acc-icon flex-shrink-0 w-8 h-8 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center font-bold text-xl transition-transform">+</span>
+              <span class="text-ceac-blue text-sm md:text-base"><strong>Módulo 3:</strong> Comunicación y atención al cliente en hostelería y turismo</span>
+              <span class="acc-icon flex-shrink-0 w-9 h-9 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center transition-transform">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              </span>
             </button>
             <div class="acc-panel hidden pb-4 px-2 text-sm text-gray-700">Técnicas de comunicación verbal y no verbal, gestión de quejas y herramientas para una atención excelente.</div>
           </div>
 
           <div class="border-t border-gray-200">
             <button class="acc-btn w-full flex justify-between items-center py-4 text-left hover:bg-gray-50 transition-colors px-2 gap-4" aria-expanded="false">
-              <span class="text-ceac-blue text-sm md:text-base"><span class="text-gray-500 mr-3 font-mono text-xs">M4</span>Organización y prestación del servicio de recepción en alojamientos</span>
-              <span class="acc-icon flex-shrink-0 w-8 h-8 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center font-bold text-xl transition-transform">+</span>
+              <span class="text-ceac-blue text-sm md:text-base"><strong>Módulo 4:</strong> Organización y prestación del servicio de recepción en alojamientos</span>
+              <span class="acc-icon flex-shrink-0 w-9 h-9 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center transition-transform">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              </span>
             </button>
             <div class="acc-panel hidden pb-4 px-2 text-sm text-gray-700">Check-in, check-out, facturación y coordinación con el resto de departamentos del hotel.</div>
           </div>
 
           <div class="border-t border-gray-200">
             <button class="acc-btn w-full flex justify-between items-center py-4 text-left hover:bg-gray-50 transition-colors px-2 gap-4" aria-expanded="false">
-              <span class="text-ceac-blue text-sm md:text-base"><span class="text-gray-500 mr-3 font-mono text-xs">M5</span>Gestión de protocolo</span>
-              <span class="acc-icon flex-shrink-0 w-8 h-8 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center font-bold text-xl transition-transform">+</span>
+              <span class="text-ceac-blue text-sm md:text-base"><strong>Módulo 5:</strong> Gestión de protocolo</span>
+              <span class="acc-icon flex-shrink-0 w-9 h-9 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center transition-transform">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              </span>
             </button>
             <div class="acc-panel hidden pb-4 px-2 text-sm text-gray-700">Normas de protocolo aplicadas al sector turístico, eventos institucionales y trato a clientes VIP.</div>
           </div>
 
           <div class="border-t border-gray-200">
             <button class="acc-btn w-full flex justify-between items-center py-4 text-left hover:bg-gray-50 transition-colors px-2 gap-4" aria-expanded="false">
-              <span class="text-ceac-blue text-sm md:text-base"><span class="text-gray-500 mr-3 font-mono text-xs">M6</span>Función del mando intermedio en la prevención de riesgos laborales</span>
-              <span class="acc-icon flex-shrink-0 w-8 h-8 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center font-bold text-xl transition-transform">+</span>
+              <span class="text-ceac-blue text-sm md:text-base"><strong>Módulo 6:</strong> Función del mando intermedio en la prevención de riesgos laborales</span>
+              <span class="acc-icon flex-shrink-0 w-9 h-9 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center transition-transform">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              </span>
             </button>
             <div class="acc-panel hidden pb-4 px-2 text-sm text-gray-700">Conceptos clave de PRL aplicados al entorno hotelero y normativa vigente.</div>
           </div>
 
           <div class="border-t border-gray-200">
             <button class="acc-btn w-full flex justify-between items-center py-4 text-left hover:bg-gray-50 transition-colors px-2 gap-4" aria-expanded="false">
-              <span class="text-ceac-blue text-sm md:text-base"><span class="text-gray-500 mr-3 font-mono text-xs">M7</span>Procesos de gestión de departamentos del área de alojamiento</span>
-              <span class="acc-icon flex-shrink-0 w-8 h-8 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center font-bold text-xl transition-transform">+</span>
+              <span class="text-ceac-blue text-sm md:text-base"><strong>Módulo 7:</strong> Procesos de gestión de departamentos del área de alojamiento</span>
+              <span class="acc-icon flex-shrink-0 w-9 h-9 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center transition-transform">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              </span>
             </button>
             <div class="acc-panel hidden pb-4 px-2 text-sm text-gray-700">Estructura organizativa, coordinación interdepartamental y gestión operativa diaria.</div>
           </div>
 
           <div class="border-t border-gray-200">
             <button class="acc-btn w-full flex justify-between items-center py-4 text-left hover:bg-gray-50 transition-colors px-2 gap-4" aria-expanded="false">
-              <span class="text-ceac-blue text-sm md:text-base"><span class="text-gray-500 mr-3 font-mono text-xs">M8</span>Procesos de gestión de calidad en hostelería y turismo</span>
-              <span class="acc-icon flex-shrink-0 w-8 h-8 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center font-bold text-xl transition-transform">+</span>
+              <span class="text-ceac-blue text-sm md:text-base"><strong>Módulo 8:</strong> Procesos de gestión de calidad en hostelería y turismo</span>
+              <span class="acc-icon flex-shrink-0 w-9 h-9 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center transition-transform">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              </span>
             </button>
             <div class="acc-panel hidden pb-4 px-2 text-sm text-gray-700">Sistemas de gestión de calidad, mejora continua y satisfacción del cliente.</div>
           </div>
 
           <div class="border-t border-b border-gray-200">
             <button class="acc-btn w-full flex justify-between items-center py-4 text-left hover:bg-gray-50 transition-colors px-2 gap-4" aria-expanded="false">
-              <span class="text-ceac-blue text-sm md:text-base"><span class="text-gray-500 mr-3 font-mono text-xs">M9</span>English for Hotel Receptionists</span>
-              <span class="acc-icon flex-shrink-0 w-8 h-8 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center font-bold text-xl transition-transform">+</span>
+              <span class="text-ceac-blue text-sm md:text-base"><strong>Módulo 9:</strong> English for Hotel Receptionists</span>
+              <span class="acc-icon flex-shrink-0 w-9 h-9 rounded-full bg-ceac-lime text-ceac-blue flex items-center justify-center transition-transform">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+              </span>
             </button>
             <div class="acc-panel hidden pb-4 px-2 text-sm text-gray-700">Inglés profesional aplicado a recepción de hotel y atención a clientes internacionales.</div>
           </div>
