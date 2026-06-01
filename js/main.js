@@ -30,13 +30,26 @@
     });
   }
 
-  /* ---------- 2. Acordeón del temario ---------- */
-  document.querySelectorAll('.acc-btn').forEach(btn => {
+  /* ---------- 2. Acordeón del temario (exclusivo: solo uno abierto a la vez) ---------- */
+  const accordion = document.getElementById('accordion');
+  const accButtons = document.querySelectorAll('.acc-btn');
+  accButtons.forEach(btn => {
     btn.addEventListener('click', () => {
+      const wasExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+      // Cierra todos los demás panels del mismo acordeón (si lo hay)
+      const scope = accordion || document;
+      scope.querySelectorAll('.acc-btn[aria-expanded="true"]').forEach(other => {
+        if (other === btn) return;
+        other.setAttribute('aria-expanded', 'false');
+        const otherPanel = other.nextElementSibling;
+        if (otherPanel) otherPanel.classList.add('hidden');
+      });
+
+      // Alterna el actual
+      btn.setAttribute('aria-expanded', String(!wasExpanded));
       const panel = btn.nextElementSibling;
-      const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      if (panel) panel.classList.toggle('hidden');
+      if (panel) panel.classList.toggle('hidden', wasExpanded);
     });
   });
 
