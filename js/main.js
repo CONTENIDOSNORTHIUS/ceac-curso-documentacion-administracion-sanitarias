@@ -31,25 +31,30 @@
   }
 
   /* ---------- 2. Acordeón del temario (exclusivo: solo uno abierto a la vez) ---------- */
-  const accordion = document.getElementById('accordion');
-  const accButtons = document.querySelectorAll('.acc-btn');
+  const accButtons = Array.from(document.querySelectorAll('.acc-btn'));
+
+  const closeAccordion = (btn) => {
+    btn.setAttribute('aria-expanded', 'false');
+    const panel = btn.nextElementSibling;
+    if (panel && panel.classList.contains('acc-panel')) panel.classList.add('hidden');
+  };
+
+  const openAccordion = (btn) => {
+    btn.setAttribute('aria-expanded', 'true');
+    const panel = btn.nextElementSibling;
+    if (panel && panel.classList.contains('acc-panel')) panel.classList.remove('hidden');
+  };
+
   accButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const wasExpanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const wasOpen = btn.getAttribute('aria-expanded') === 'true';
 
-      // Cierra todos los demás panels del mismo acordeón (si lo hay)
-      const scope = accordion || document;
-      scope.querySelectorAll('.acc-btn[aria-expanded="true"]').forEach(other => {
-        if (other === btn) return;
-        other.setAttribute('aria-expanded', 'false');
-        const otherPanel = other.nextElementSibling;
-        if (otherPanel) otherPanel.classList.add('hidden');
-      });
+      // Cierra TODOS los módulos
+      accButtons.forEach(closeAccordion);
 
-      // Alterna el actual
-      btn.setAttribute('aria-expanded', String(!wasExpanded));
-      const panel = btn.nextElementSibling;
-      if (panel) panel.classList.toggle('hidden', wasExpanded);
+      // Si el clicado estaba cerrado, lo abrimos (si estaba abierto, queda cerrado)
+      if (!wasOpen) openAccordion(btn);
     });
   });
 
